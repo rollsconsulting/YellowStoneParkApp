@@ -1,0 +1,23 @@
+[
+    {
+        "name": "West Entrance",
+        "coordinates": {
+            "lat": 36.330576,
+            "lon": -110.029739
+        }
+    },
+    {
+        "name": "East Entrance",
+        "coordinates": {
+            "lat": 44.330576,
+            "lon": -112.029739
+        }
+    },
+    {
+        "name": "South Entrance",
+        "coordinates": {
+            "lat": 40.330576,
+            "lon": -110.029739
+        }
+    }
+]

@@ -9,13 +9,17 @@
 /* Begin PBXBuildFile section */
 		136EEA362388C0D4006173A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136EEA352388C0D4006173A1 /* AppDelegate.swift */; };
 		136EEA382388C0D4006173A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136EEA372388C0D4006173A1 /* SceneDelegate.swift */; };
-		136EEA3A2388C0D4006173A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136EEA392388C0D4006173A1 /* ViewController.swift */; };
+		136EEA3A2388C0D4006173A1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136EEA392388C0D4006173A1 /* MapViewController.swift */; };
 		136EEA3D2388C0D4006173A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 136EEA3B2388C0D4006173A1 /* Main.storyboard */; };
 		136EEA402388C0D4006173A1 /* GreatCampingApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 136EEA3E2388C0D4006173A1 /* GreatCampingApp.xcdatamodeld */; };
 		136EEA422388C0D7006173A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 136EEA412388C0D7006173A1 /* Assets.xcassets */; };
 		136EEA452388C0D7006173A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 136EEA432388C0D7006173A1 /* LaunchScreen.storyboard */; };
 		136EEA502388C0D8006173A1 /* GreatCampingAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136EEA4F2388C0D8006173A1 /* GreatCampingAppTests.swift */; };
 		136EEA5B2388C0D8006173A1 /* GreatCampingAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136EEA5A2388C0D8006173A1 /* GreatCampingAppUITests.swift */; };
+		136EEAE02389A084006173A1 /* GPSLocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136EEADF2389A084006173A1 /* GPSLocationData.swift */; };
+		136EEAE32389A84C006173A1 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136EEAE22389A84C006173A1 /* JSONParser.swift */; };
+		136EEAE52389C8E1006173A1 /* parkLocations.json in Resources */ = {isa = PBXBuildFile; fileRef = 136EEAE42389C8E1006173A1 /* parkLocations.json */; };
+		136EEAE9238B0DBA006173A1 /* DetailedParkDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136EEAE8238B0DBA006173A1 /* DetailedParkDataView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +43,7 @@
 		136EEA322388C0D4006173A1 /* GreatCampingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreatCampingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		136EEA352388C0D4006173A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		136EEA372388C0D4006173A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		136EEA392388C0D4006173A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		136EEA392388C0D4006173A1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		136EEA3C2388C0D4006173A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		136EEA3F2388C0D4006173A1 /* GreatCampingApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GreatCampingApp.xcdatamodel; sourceTree = "<group>"; };
 		136EEA412388C0D7006173A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +55,10 @@
 		136EEA562388C0D8006173A1 /* GreatCampingAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GreatCampingAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		136EEA5A2388C0D8006173A1 /* GreatCampingAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreatCampingAppUITests.swift; sourceTree = "<group>"; };
 		136EEA5C2388C0D8006173A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		136EEADF2389A084006173A1 /* GPSLocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSLocationData.swift; sourceTree = "<group>"; };
+		136EEAE22389A84C006173A1 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		136EEAE42389C8E1006173A1 /* parkLocations.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = parkLocations.json; sourceTree = "<group>"; };
+		136EEAE8238B0DBA006173A1 /* DetailedParkDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedParkDataView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,14 +109,18 @@
 		136EEA342388C0D4006173A1 /* GreatCampingApp */ = {
 			isa = PBXGroup;
 			children = (
+				136EEAE12389A822006173A1 /* model */,
+				136EEA682388D32E006173A1 /* CampSiteData */,
 				136EEA352388C0D4006173A1 /* AppDelegate.swift */,
 				136EEA372388C0D4006173A1 /* SceneDelegate.swift */,
-				136EEA392388C0D4006173A1 /* ViewController.swift */,
+				136EEA392388C0D4006173A1 /* MapViewController.swift */,
 				136EEA3B2388C0D4006173A1 /* Main.storyboard */,
 				136EEA412388C0D7006173A1 /* Assets.xcassets */,
 				136EEA432388C0D7006173A1 /* LaunchScreen.storyboard */,
 				136EEA462388C0D7006173A1 /* Info.plist */,
 				136EEA3E2388C0D4006173A1 /* GreatCampingApp.xcdatamodeld */,
+				136EEADF2389A084006173A1 /* GPSLocationData.swift */,
+				136EEAE8238B0DBA006173A1 /* DetailedParkDataView.swift */,
 			);
 			path = GreatCampingApp;
 			sourceTree = "<group>";
@@ -129,6 +141,22 @@
 				136EEA5C2388C0D8006173A1 /* Info.plist */,
 			);
 			path = GreatCampingAppUITests;
+			sourceTree = "<group>";
+		};
+		136EEA682388D32E006173A1 /* CampSiteData */ = {
+			isa = PBXGroup;
+			children = (
+				136EEAE42389C8E1006173A1 /* parkLocations.json */,
+			);
+			path = CampSiteData;
+			sourceTree = "<group>";
+		};
+		136EEAE12389A822006173A1 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				136EEAE22389A84C006173A1 /* JSONParser.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,6 +266,7 @@
 				136EEA452388C0D7006173A1 /* LaunchScreen.storyboard in Resources */,
 				136EEA422388C0D7006173A1 /* Assets.xcassets in Resources */,
 				136EEA3D2388C0D4006173A1 /* Main.storyboard in Resources */,
+				136EEAE52389C8E1006173A1 /* parkLocations.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,8 +291,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				136EEA3A2388C0D4006173A1 /* ViewController.swift in Sources */,
+				136EEA3A2388C0D4006173A1 /* MapViewController.swift in Sources */,
 				136EEA362388C0D4006173A1 /* AppDelegate.swift in Sources */,
+				136EEAE32389A84C006173A1 /* JSONParser.swift in Sources */,
+				136EEAE02389A084006173A1 /* GPSLocationData.swift in Sources */,
+				136EEAE9238B0DBA006173A1 /* DetailedParkDataView.swift in Sources */,
 				136EEA382388C0D4006173A1 /* SceneDelegate.swift in Sources */,
 				136EEA402388C0D4006173A1 /* GreatCampingApp.xcdatamodeld in Sources */,
 			);

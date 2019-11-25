@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  GreatCampingApp
 //
-//  Created by Roland Sarkissian on 11/22/19.
+//  Created by Roland Sarkissian on 11/23/19.
 //  Copyright © 2019 Rolls Consulting. All rights reserved.
 //
 
