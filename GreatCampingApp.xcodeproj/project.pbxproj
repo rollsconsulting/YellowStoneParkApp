@@ -40,7 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		136EEA322388C0D4006173A1 /* GreatCampingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreatCampingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		136EEA322388C0D4006173A1 /* YellowStonePark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YellowStonePark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		136EEA352388C0D4006173A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		136EEA372388C0D4006173A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		136EEA392388C0D4006173A1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 		136EEA332388C0D4006173A1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				136EEA322388C0D4006173A1 /* GreatCampingApp.app */,
+				136EEA322388C0D4006173A1 /* YellowStonePark.app */,
 				136EEA4B2388C0D8006173A1 /* GreatCampingAppTests.xctest */,
 				136EEA562388C0D8006173A1 /* GreatCampingAppUITests.xctest */,
 			);
@@ -176,7 +176,7 @@
 			);
 			name = GreatCampingApp;
 			productName = GreatCampingApp;
-			productReference = 136EEA322388C0D4006173A1 /* GreatCampingApp.app */;
+			productReference = 136EEA322388C0D4006173A1 /* YellowStonePark.app */;
 			productType = "com.apple.product-type.application";
 		};
 		136EEA4A2388C0D8006173A1 /* GreatCampingAppTests */ = {
@@ -476,8 +476,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = RC.GreatCampingApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = RC.YellowStoneParkapp;
+				PRODUCT_NAME = YellowStonePark;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -493,8 +493,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = RC.GreatCampingApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = RC.YellowStoneParkapp;
+				PRODUCT_NAME = YellowStonePark;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
