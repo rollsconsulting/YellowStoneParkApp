@@ -8,16 +8,13 @@
 
 import Foundation
 
-protocol LocationDataP {
+protocol LocationData {
     var name: String { get set }
     var coordinates: GPSCoordinate { get set }
 }
 
-//struct LocationData: Codable {
-//    var sites: [GPSLocationData]
-//}
 
-struct GPSLocationData: Codable, LocationDataP {
+struct GPSLocationData: Codable, LocationData {
     var name: String
     var coordinates: GPSCoordinate
     

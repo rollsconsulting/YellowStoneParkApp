@@ -20,6 +20,7 @@
 		136EEAE32389A84C006173A1 /* LocationDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136EEAE22389A84C006173A1 /* LocationDataViewModel.swift */; };
 		136EEAE52389C8E1006173A1 /* parkLocations.json in Resources */ = {isa = PBXBuildFile; fileRef = 136EEAE42389C8E1006173A1 /* parkLocations.json */; };
 		136EEAE9238B0DBA006173A1 /* DetailedParkDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136EEAE8238B0DBA006173A1 /* DetailedParkDataView.swift */; };
+		13BF8F00238D155900EC32E7 /* NameGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF8EFF238D155900EC32E7 /* NameGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		136EEAE22389A84C006173A1 /* LocationDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataViewModel.swift; sourceTree = "<group>"; };
 		136EEAE42389C8E1006173A1 /* parkLocations.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = parkLocations.json; sourceTree = "<group>"; };
 		136EEAE8238B0DBA006173A1 /* DetailedParkDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedParkDataView.swift; sourceTree = "<group>"; };
+		13BF8EFF238D155900EC32E7 /* NameGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 		136EEA682388D32E006173A1 /* CampSiteData */ = {
 			isa = PBXGroup;
 			children = (
+				13BF8EFF238D155900EC32E7 /* NameGenerator.swift */,
 				136EEAE42389C8E1006173A1 /* parkLocations.json */,
 			);
 			path = CampSiteData;
@@ -305,6 +308,7 @@
 				136EEAE02389A084006173A1 /* GPSLocationData.swift in Sources */,
 				136EEAE9238B0DBA006173A1 /* DetailedParkDataView.swift in Sources */,
 				136EEA382388C0D4006173A1 /* SceneDelegate.swift in Sources */,
+				13BF8F00238D155900EC32E7 /* NameGenerator.swift in Sources */,
 				136EEA402388C0D4006173A1 /* GreatCampingApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

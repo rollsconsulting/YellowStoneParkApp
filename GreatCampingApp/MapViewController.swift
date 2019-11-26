@@ -92,17 +92,6 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, Location
     }
     
     
-    func getCamperName() -> String {
-        let camperNames = ["Anthony", "Charley", "Julie", "Mike", "Tony", "Annette", "Roman", "Skylar"]
-          return camperNames[Int.random(in: 0...camperNames.count-1)]
-    }
-      
-    
-    func camperProvidedNumber() -> String {
-        let camperNum = ["000 111 2222", "000 112 2222", "000 113 2222", "000 114 2222", "000 115 2222", "000 115 2222", "000 115 2222", "000 117 2222"]
-          return camperNum[Int.random(in: 0...camperNum.count-1)]
-    }
-    
     
     func makeAndAddVisibleAnnotation(withCoordinates locCor: CLLocationCoordinate2D, withTitle title: String, andtype type: parkDataType, number: String) {
         
@@ -213,32 +202,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, Location
     
     
     func initSiteNames() {
-        self.siteNames =  ["Alfa",
-               "Bravo",
-               "Charlie",
-               "Delta",
-               "Echo",
-               "Foxtrot",
-               "Golf",
-               "Hotel",
-               "India",
-               "Juliett",
-               "Kilo",
-               "Lima",
-               "vMike",
-               "November",
-               "Oscar",
-               "Papa",
-               "Quebec",
-               "Romeo",
-               "Sierra",
-               "Tango",
-               "Uniform",
-               "Victor",
-               "Whiskey",
-               "X-ray",
-               "Yankee",
-               "Zulu"]
+        self.siteNames = NATOPhoneticAlphabet()
     }
 
 
