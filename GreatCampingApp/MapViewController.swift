@@ -40,15 +40,16 @@ class ParkAnnotation: MKPointAnnotation {
 class MapViewController: UIViewController, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
-
+    let maxCampersOnSite = 20
     let mapViewAnnotationId = "AnnotationView"
+    var arrivedCampers: Int = 0
     var camperSimTimer: Timer?
     var siteNames: [String] = []
-    var model: JSONParser
+    var viewModel: LocationDataViewModelImp
     
     var campSiteData: [GPSLocationData] = [] {
         didSet {
-            self.model.updateSiteData(with: self.campSiteData)
+            self.viewModel.updateSiteData(with: self.campSiteData)
         }
     }
     
@@ -70,20 +71,24 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
         return view
     }()
     
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        self.model = JSONParserImp()
+        self.viewModel = LocationDataViewModelImp()
         super.init(nibName: nil, bundle: nil)
     }
     
-    convenience init(withModel model: JSONParser) {
+    
+    convenience init(withModel model: LocationDataViewModelImp) {
         self.init(nibName: nil, bundle: nil)
-        self.model = model  //model injection
+        self.viewModel = model  //model injection
     }
     
+    
     required init?(coder: NSCoder) {
-        self.model = JSONParserImp()
+        self.viewModel = LocationDataViewModelImp()
         super.init(coder: coder)
     }
+    
     
     func getSiteName() -> String {
         if siteNames.count > 0 {
@@ -93,11 +98,13 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
         return "No Name"
     }
     
+    
     func getCamperName() -> String {
         let camperNames = ["Anthony", "Charley", "Julie", "Mike", "Tony", "Annette", "Roman", "Skylar"]
           return camperNames[Int.random(in: 0...camperNames.count-1)]
     }
       
+    
     func camperProvidedNumber() -> String {
         let camperNum = ["000 111 2222", "000 112 2222", "000 113 2222", "000 114 2222", "000 115 2222", "000 115 2222", "000 115 2222", "000 117 2222"]
           return camperNum[Int.random(in: 0...camperNum.count-1)]
@@ -108,7 +115,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
         
         let annotation = ParkAnnotation(type: type)
         
-        annotation.siteDescription = (type == .campSite) ? "YellowStone National Park" : "Camping guest"
+        annotation.siteDescription = (type == .campSite) ? "YellowStone Park camp site" : "Camping guest"
         
         annotation.name = title
         
@@ -119,12 +126,27 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
         mapView.addAnnotation(annotation)
     }
     
-   private func location2D(latitude: CLLocationDegrees, longitude: CLLocationDegrees) -> CLLocationCoordinate2D {
+    
+    private func location2D(latitude: CLLocationDegrees, longitude: CLLocationDegrees) -> CLLocationCoordinate2D {
           return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-      }
+    }
+    
+    
+    private func findCampSite(forCoordinates coordinates: CLLocationCoordinate2D) ->  GPSLocationData? {
+        let campSite = self.campSiteData.filter {
+            $0.coordinates.lat == coordinates.latitude
+        }
+        
+        if campSite.count > 0 {
+            return campSite[0]
+        }
+        
+        return nil
+    }
+    
     
     func loadCampSitesAndAnnotation() {
-        if let siteData = self.model.getParkData() {
+        if let siteData = self.viewModel.getParkData() {
             self.campSiteData.append(contentsOf: siteData)
             
             for site in campSiteData {
@@ -142,8 +164,9 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
         return location2D(latitude: rLat, longitude: rLon)
     }
     
+    
     //defualt lat/lon for YellowStone National park
-    func loadParkMap(latitude: CLLocationDegrees = 44.528523, longitude: CLLocationDegrees = -110.412812, title: String = "YellowStone National Park" ) {
+    func loadParkMap(latitude: CLLocationDegrees = 44.528523, longitude: CLLocationDegrees = -110.412812, title: String = "YellowStone Park Center" ) {
         let latDelta: CLLocationDegrees = 1.0
         let lonDelta: CLLocationDegrees = 1.0
         
@@ -196,10 +219,17 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
         mapView.addGestureRecognizer(lonPressGesRec)
     }
     
+    
     @objc func generateRandomCamper() {
-        let visitor = getRandomCoordinates()
-        makeAndAddVisibleAnnotation(withCoordinates: visitor, withTitle: getCamperName(), andtype: .camper, number: camperProvidedNumber())
+        if arrivedCampers < maxCampersOnSite {
+            arrivedCampers += 1
+            let visitorCoordinates = getRandomCoordinates()
+            makeAndAddVisibleAnnotation(withCoordinates: visitorCoordinates, withTitle: getCamperName(), andtype: .camper, number: camperProvidedNumber())
+        } else {
+            camperSimTimer?.invalidate()
+        }
     }
+    
     
     func simulateCampers() {
         camperSimTimer = Timer.scheduledTimer(timeInterval: 11.0,
@@ -208,6 +238,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
                                               userInfo: nil,
                                               repeats: true)
     }
+    
     
     func initSiteNames() {
         self.siteNames =  ["Alfa",
@@ -258,6 +289,19 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
 
 
 extension MapViewController: MKMapViewDelegate {
+    
+    internal func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationView.DragState, fromOldState oldState: MKAnnotationView.DragState) {
+        switch newState {
+        case .starting:
+            view.dragState = .dragging
+            findCampSite(forCoordinates: view.annotation!.coordinate)
+        case .ending, .canceling:
+            view.dragState = .none
+        default: break
+        }
+    }
+
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         var annotationView: MKAnnotationView?
 
@@ -271,20 +315,18 @@ extension MapViewController: MKMapViewDelegate {
             annotationView?.image = UIImage(named: annotPoint.type == .camper ? "camper" : "tent")
         }
         
+        annotationView?.isDraggable = true
+        
         return annotationView
     }
     
-    @objc func buttonClicked(_ sender: UIButton?) {
-        if let bView = sender {
-            let view = bView.superview
-            view?.removeFromSuperview()
-        }
-    }
     
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        if let annot = view.annotation as? ParkAnnotation {
-            self.showDetailedView(annotation: annot)
+        DispatchQueue.main.async {
+            if let annot = view.annotation as? ParkAnnotation {
+                self.showDetailedView(annotation: annot)
+            }
         }
     }
 }

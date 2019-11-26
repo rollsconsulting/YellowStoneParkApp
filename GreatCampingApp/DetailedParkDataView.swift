@@ -18,9 +18,7 @@ class DetailedParkDataView: UIView {
     var imageView: UIImageView!
     
     
-    @objc func buttonClicked(_ sender: UIButton?) {
-        print("Yo Meng")
-        
+    @objc func removeDetailedView(_ sender: UIButton?) {
         if let bView = sender {
             let view = bView.superview
             view?.removeFromSuperview()
@@ -66,7 +64,7 @@ class DetailedParkDataView: UIView {
         button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
         button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
         
-        button.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
+        button.addTarget(self, action: #selector(removeDetailedView), for: .touchUpInside)
         
         let vb = self.bounds
         

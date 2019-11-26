@@ -1,5 +1,5 @@
 //
-//  JSONParser.swift
+//  LocationDataViewModelImp.swift
 //  GreatCampingApp
 //
 //  Created by Roland Sarkissian on 11/24/19.
@@ -9,14 +9,14 @@
 import Foundation
 
 
-public protocol JSONParser {
+public protocol LocationDataViewModel {
     func updateSiteData(with data:[GPSLocationData])
     func getParkData() -> [GPSLocationData]?
 }
 
 
 
-class JSONParserImp: JSONParser {
+class LocationDataViewModelImp: LocationDataViewModel {
     private var campSiteData: [GPSLocationData]?
     
     

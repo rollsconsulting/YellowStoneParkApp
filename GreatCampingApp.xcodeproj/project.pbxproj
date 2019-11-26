@@ -17,7 +17,7 @@
 		136EEA502388C0D8006173A1 /* GreatCampingAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136EEA4F2388C0D8006173A1 /* GreatCampingAppTests.swift */; };
 		136EEA5B2388C0D8006173A1 /* GreatCampingAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136EEA5A2388C0D8006173A1 /* GreatCampingAppUITests.swift */; };
 		136EEAE02389A084006173A1 /* GPSLocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136EEADF2389A084006173A1 /* GPSLocationData.swift */; };
-		136EEAE32389A84C006173A1 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136EEAE22389A84C006173A1 /* JSONParser.swift */; };
+		136EEAE32389A84C006173A1 /* LocationDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136EEAE22389A84C006173A1 /* LocationDataViewModel.swift */; };
 		136EEAE52389C8E1006173A1 /* parkLocations.json in Resources */ = {isa = PBXBuildFile; fileRef = 136EEAE42389C8E1006173A1 /* parkLocations.json */; };
 		136EEAE9238B0DBA006173A1 /* DetailedParkDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136EEAE8238B0DBA006173A1 /* DetailedParkDataView.swift */; };
 /* End PBXBuildFile section */
@@ -56,7 +56,7 @@
 		136EEA5A2388C0D8006173A1 /* GreatCampingAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreatCampingAppUITests.swift; sourceTree = "<group>"; };
 		136EEA5C2388C0D8006173A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		136EEADF2389A084006173A1 /* GPSLocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSLocationData.swift; sourceTree = "<group>"; };
-		136EEAE22389A84C006173A1 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		136EEAE22389A84C006173A1 /* LocationDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataViewModel.swift; sourceTree = "<group>"; };
 		136EEAE42389C8E1006173A1 /* parkLocations.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = parkLocations.json; sourceTree = "<group>"; };
 		136EEAE8238B0DBA006173A1 /* DetailedParkDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedParkDataView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,7 +154,7 @@
 		136EEAE12389A822006173A1 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				136EEAE22389A84C006173A1 /* JSONParser.swift */,
+				136EEAE22389A84C006173A1 /* LocationDataViewModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -293,7 +293,7 @@
 			files = (
 				136EEA3A2388C0D4006173A1 /* MapViewController.swift in Sources */,
 				136EEA362388C0D4006173A1 /* AppDelegate.swift in Sources */,
-				136EEAE32389A84C006173A1 /* JSONParser.swift in Sources */,
+				136EEAE32389A84C006173A1 /* LocationDataViewModel.swift in Sources */,
 				136EEAE02389A084006173A1 /* GPSLocationData.swift in Sources */,
 				136EEAE9238B0DBA006173A1 /* DetailedParkDataView.swift in Sources */,
 				136EEA382388C0D4006173A1 /* SceneDelegate.swift in Sources */,
@@ -472,11 +472,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GreatCampingApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = RC.YellowStoneParkapp;
+				PRODUCT_BUNDLE_IDENTIFIER = RC.YellowStonePark;
 				PRODUCT_NAME = YellowStonePark;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -489,11 +490,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GreatCampingApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = RC.YellowStoneParkapp;
+				PRODUCT_BUNDLE_IDENTIFIER = RC.YellowStonePark;
 				PRODUCT_NAME = YellowStonePark;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
