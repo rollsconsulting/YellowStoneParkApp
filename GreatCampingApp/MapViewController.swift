@@ -42,7 +42,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, Location
     var arrivedCampers: Int = 0
     var camperSimTimer: Timer?
     var siteNames: [String] = []
-    var viewModel: LocationDataViewModelImp
+    var viewModel: LocationDataViewModel
     
     
     

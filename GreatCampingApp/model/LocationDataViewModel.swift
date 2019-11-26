@@ -10,12 +10,14 @@ import Foundation
 import MapKit
 
 
-protocol LocationDataVMDelegate {
+public protocol LocationDataVMDelegate {
     func campSiteData(withName name: String, latitude: Double, and longitute: Double)
 }
 
 
 public protocol LocationDataViewModel {
+    var delegate: LocationDataVMDelegate? { get set }
+    
     func appendSiteData(withName name: String, latitude: Double, longitude: Double)
     func updateSiteData(with data: GPSLocationData)
     func loadPersistedSiteData() -> ()
