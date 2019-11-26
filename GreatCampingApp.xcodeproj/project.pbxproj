@@ -109,7 +109,8 @@
 		136EEA342388C0D4006173A1 /* GreatCampingApp */ = {
 			isa = PBXGroup;
 			children = (
-				136EEAE12389A822006173A1 /* model */,
+				139A1C8B238D11AE00680FAA /* Model */,
+				136EEAE12389A822006173A1 /* ViewModel */,
 				136EEA682388D32E006173A1 /* CampSiteData */,
 				136EEA352388C0D4006173A1 /* AppDelegate.swift */,
 				136EEA372388C0D4006173A1 /* SceneDelegate.swift */,
@@ -119,7 +120,6 @@
 				136EEA432388C0D7006173A1 /* LaunchScreen.storyboard */,
 				136EEA462388C0D7006173A1 /* Info.plist */,
 				136EEA3E2388C0D4006173A1 /* GreatCampingApp.xcdatamodeld */,
-				136EEADF2389A084006173A1 /* GPSLocationData.swift */,
 				136EEAE8238B0DBA006173A1 /* DetailedParkDataView.swift */,
 			);
 			path = GreatCampingApp;
@@ -151,12 +151,20 @@
 			path = CampSiteData;
 			sourceTree = "<group>";
 		};
-		136EEAE12389A822006173A1 /* model */ = {
+		136EEAE12389A822006173A1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				136EEAE22389A84C006173A1 /* LocationDataViewModel.swift */,
 			);
-			path = model;
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		139A1C8B238D11AE00680FAA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				136EEADF2389A084006173A1 /* GPSLocationData.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

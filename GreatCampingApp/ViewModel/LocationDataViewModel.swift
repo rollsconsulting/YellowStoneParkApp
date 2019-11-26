@@ -19,7 +19,6 @@ public protocol LocationDataViewModel {
     var delegate: LocationDataVMDelegate? { get set }
     
     func appendSiteData(withName name: String, latitude: Double, longitude: Double)
-    func updateSiteData(with data: GPSLocationData)
     func loadPersistedSiteData() -> ()
     func siteDataContains(location coordinates: CLLocationCoordinate2D) -> Bool
 }
@@ -28,7 +27,7 @@ public protocol LocationDataViewModel {
 class LocationDataViewModelImp: LocationDataViewModel {
     private var campSiteData: [GPSLocationData] = [] {
         didSet {
-            
+            self.persistSiteData()
         }
     }
     
@@ -65,9 +64,7 @@ class LocationDataViewModelImp: LocationDataViewModel {
     }
     
     
-    func updateSiteData(with data:GPSLocationData) {
-        self.campSiteData.append(data)
-        
+    func persistSiteData() {
         if !self.campSiteData.isEmpty {
             self.encodeDataToFile(data: self.campSiteData)
         }
@@ -76,6 +73,7 @@ class LocationDataViewModelImp: LocationDataViewModel {
     
     func loadPersistedSiteData() {
         if let siteData = self.decodeJSONFromFile("parkLocations"), let delegate = delegate {
+            self.campSiteData.append(contentsOf: siteData)
             for site in siteData {
                 delegate.campSiteData(withName: site.name, latitude: site.coordinates.lat, and: site.coordinates.lon)
             }

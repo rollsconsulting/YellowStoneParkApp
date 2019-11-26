@@ -204,7 +204,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, Location
     
     
     func simulateCampers() {
-        camperSimTimer = Timer.scheduledTimer(timeInterval: 11.0,
+        camperSimTimer = Timer.scheduledTimer(timeInterval: 7.0,
                                               target: self,
                                               selector: #selector(generateRandomCamper),
                                               userInfo: nil,
@@ -290,6 +290,7 @@ extension MapViewController: MKMapViewDelegate {
             }
 
             annotationView?.image = UIImage(named: annotPoint.type == .camper ? "camper" : "tent")
+           
         }
         
         annotationView?.isDraggable = true
