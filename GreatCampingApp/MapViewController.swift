@@ -44,11 +44,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, Location
     var siteNames: [String] = []
     var viewModel: LocationDataViewModelImp
     
-    var campSiteData: [GPSLocationData] = [] {
-        didSet {
-//            self.viewModel.updateSiteData(with: self.campSiteData)
-        }
-    }
+    
     
     lazy var campDetaileView: DetailedParkDataView = {
         let sb = UIScreen.main.bounds
@@ -131,7 +127,6 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, Location
     
     func campSiteData(withName name: String, latitude: Double, and longitute: Double) {
         let loc = location2D(latitude: latitude, longitude: longitute)
-
         makeAndAddVisibleAnnotation(withCoordinates: loc, withTitle: name, andtype: .campSite, number: "")
     }
     
