@@ -7,17 +7,30 @@
 //
 
 import Foundation
+import MapKit
 
 
-public protocol LocationDataViewModel {
-    func updateSiteData(with data:[GPSLocationData])
-    func getParkData() -> [GPSLocationData]?
+protocol LocationDataVMDelegate {
+    func campSiteData(withName name: String, latitude: Double, and longitute: Double)
 }
 
 
+public protocol LocationDataViewModel {
+    func appendSiteData(withName name: String, latitude: Double, longitude: Double)
+    func updateSiteData(with data: GPSLocationData)
+    func loadPersistedSiteData() -> ()
+    func siteDataContains(location coordinates: CLLocationCoordinate2D) -> Bool
+}
+
 
 class LocationDataViewModelImp: LocationDataViewModel {
-    private var campSiteData: [GPSLocationData]?
+    private var campSiteData: [GPSLocationData] = [] {
+        didSet {
+            
+        }
+    }
+    
+    var delegate: LocationDataVMDelegate?
     
     
     private func getURL(_ fileName: String) -> URL? {
@@ -30,20 +43,42 @@ class LocationDataViewModelImp: LocationDataViewModel {
         return nil
     }
     
-    func updateSiteData(with data:[GPSLocationData]) {
-        self.campSiteData = data
+    func siteDataContains(location coordinates: CLLocationCoordinate2D) -> Bool {
+        let campSite = self.campSiteData.filter {
+            $0.coordinates.lat == coordinates.latitude
+        }
         
-        if let csData = self.campSiteData {
-            self.encodeDataToFile(data: csData)
+        if campSite.count > 0 {
+            return true
+        }
+        
+        return false
+    }
+    
+    
+    func appendSiteData(withName name: String, latitude: Double, longitude: Double) {
+        let locData = GPSLocationData(nameStr: name, lat: latitude, lon: longitude)
+        
+        campSiteData.append(locData)
+    }
+    
+    
+    func updateSiteData(with data:GPSLocationData) {
+        self.campSiteData.append(data)
+        
+        if !self.campSiteData.isEmpty {
+            self.encodeDataToFile(data: self.campSiteData)
         }
     }
     
-    func getParkData() -> [GPSLocationData]? {
-        self.campSiteData = self.decodeJSONFromFile("parkLocations")
-        
-        return campSiteData
-    }
     
+    func loadPersistedSiteData() {
+        if let siteData = self.decodeJSONFromFile("parkLocations"), let delegate = delegate {
+            for site in siteData {
+                delegate.campSiteData(withName: site.name, latitude: site.coordinates.lat, and: site.coordinates.lon)
+            }
+        }
+    }
     
     func decodeJSONFromFile(_ fileName:String) -> [GPSLocationData]? {
         var datafileURL: URL?

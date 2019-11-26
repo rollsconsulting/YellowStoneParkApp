@@ -22,22 +22,19 @@ class ParkAnnotation: MKPointAnnotation {
     var name: String = ""
     var camperPhoneNumber: String = ""
 
-    
     override init() {
         super.init()
     }
     
     convenience init(type: parkDataType) {
         self.init()
-        
         self.type = type
-        
     }
 }
 
 
 
-class MapViewController: UIViewController, UIGestureRecognizerDelegate {
+class MapViewController: UIViewController, UIGestureRecognizerDelegate, LocationDataVMDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     let maxCampersOnSite = 20
@@ -49,7 +46,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var campSiteData: [GPSLocationData] = [] {
         didSet {
-            self.viewModel.updateSiteData(with: self.campSiteData)
+//            self.viewModel.updateSiteData(with: self.campSiteData)
         }
     }
     
@@ -132,28 +129,10 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     
-    private func findCampSite(forCoordinates coordinates: CLLocationCoordinate2D) ->  GPSLocationData? {
-        let campSite = self.campSiteData.filter {
-            $0.coordinates.lat == coordinates.latitude
-        }
-        
-        if campSite.count > 0 {
-            return campSite[0]
-        }
-        
-        return nil
-    }
-    
-    
-    func loadCampSitesAndAnnotation() {
-        if let siteData = self.viewModel.getParkData() {
-            self.campSiteData.append(contentsOf: siteData)
-            
-            for site in campSiteData {
-                let loc = location2D(latitude: site.coordinates.lat, longitude: site.coordinates.lon)
-                makeAndAddVisibleAnnotation(withCoordinates: loc, withTitle: site.name, andtype: .campSite, number: "")
-            }
-        }
+    func campSiteData(withName name: String, latitude: Double, and longitute: Double) {
+        let loc = location2D(latitude: latitude, longitude: longitute)
+
+        makeAndAddVisibleAnnotation(withCoordinates: loc, withTitle: name, andtype: .campSite, number: "")
     }
     
     
@@ -202,9 +181,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
             
             let name = getSiteName()
             
-            let campSite = GPSLocationData(nameStr: name, lat: coordindate.latitude, lon: coordindate.longitude)
-            
-            self.campSiteData.append(campSite)
+            self.viewModel.appendSiteData(withName: name, latitude: coordindate.latitude, longitude: coordindate.longitude)
             
             self.makeAndAddVisibleAnnotation(withCoordinates: coordindate, withTitle: name, andtype: .campSite, number: "")
          }
@@ -274,6 +251,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         
         mapView.delegate = self
+        self.viewModel.delegate = self
     
         initSiteNames()
         
@@ -281,7 +259,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
         
         loadParkMap()
         
-        loadCampSitesAndAnnotation()
+        viewModel.loadPersistedSiteData()
         
         simulateCampers()
     }
@@ -294,7 +272,11 @@ extension MapViewController: MKMapViewDelegate {
         switch newState {
         case .starting:
             view.dragState = .dragging
-            findCampSite(forCoordinates: view.annotation!.coordinate)
+            if let annot = view.annotation {
+                if self.viewModel.siteDataContains(location: annot.coordinate) {
+                    print("Existing campSite being moved")
+                }
+            }
         case .ending, .canceling:
             view.dragState = .none
         default: break
