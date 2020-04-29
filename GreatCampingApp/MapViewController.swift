@@ -61,6 +61,8 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, Location
         view.isHidden = false
         view.backgroundColor = .white
         
+      
+      
         return view
     }()
     
@@ -253,7 +255,7 @@ extension MapViewController: MKMapViewDelegate {
                 annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: mapViewAnnotationId)
             }
 
-            annotationView?.image = UIImage(named: annotPoint.type == .camper ? "camper" : "tent")
+//            annotationView?.image = UIImage(named: annotPoint.type == .camper ? "camper" : "tent")
            
         }
         

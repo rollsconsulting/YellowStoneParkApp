@@ -21,6 +21,7 @@
 		136EEAE52389C8E1006173A1 /* parkLocations.json in Resources */ = {isa = PBXBuildFile; fileRef = 136EEAE42389C8E1006173A1 /* parkLocations.json */; };
 		136EEAE9238B0DBA006173A1 /* DetailedParkDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136EEAE8238B0DBA006173A1 /* DetailedParkDataView.swift */; };
 		13BF8F00238D155900EC32E7 /* NameGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF8EFF238D155900EC32E7 /* NameGenerator.swift */; };
+		13E60B1023E33C8500356CEA /* Logo.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 13E60B0F23E33C8500356CEA /* Logo.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		136EEAE42389C8E1006173A1 /* parkLocations.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = parkLocations.json; sourceTree = "<group>"; };
 		136EEAE8238B0DBA006173A1 /* DetailedParkDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedParkDataView.swift; sourceTree = "<group>"; };
 		13BF8EFF238D155900EC32E7 /* NameGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameGenerator.swift; sourceTree = "<group>"; };
+		13BF8F01238DA20900EC32E7 /* YellowStone.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = YellowStone.gpx; sourceTree = "<group>"; };
+		13E60B0F23E33C8500356CEA /* Logo.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Logo.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,7 @@
 		136EEA292388C0D4006173A1 = {
 			isa = PBXGroup;
 			children = (
+				13BF8F01238DA20900EC32E7 /* YellowStone.gpx */,
 				136EEA342388C0D4006173A1 /* GreatCampingApp */,
 				136EEA4E2388C0D8006173A1 /* GreatCampingAppTests */,
 				136EEA592388C0D8006173A1 /* GreatCampingAppUITests */,
@@ -111,6 +115,7 @@
 		136EEA342388C0D4006173A1 /* GreatCampingApp */ = {
 			isa = PBXGroup;
 			children = (
+				13E60B0F23E33C8500356CEA /* Logo.pdf */,
 				139A1C8B238D11AE00680FAA /* Model */,
 				136EEAE12389A822006173A1 /* ViewModel */,
 				136EEA682388D32E006173A1 /* CampSiteData */,
@@ -277,6 +282,7 @@
 				136EEA452388C0D7006173A1 /* LaunchScreen.storyboard in Resources */,
 				136EEA422388C0D7006173A1 /* Assets.xcassets in Resources */,
 				136EEA3D2388C0D4006173A1 /* Main.storyboard in Resources */,
+				13E60B1023E33C8500356CEA /* Logo.pdf in Resources */,
 				136EEAE52389C8E1006173A1 /* parkLocations.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
